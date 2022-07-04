@@ -14,7 +14,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route exact path="/" element={ <Welcome/>}/>
-          <Route exact path="/newuser" element={<NewUser/>}/>
+          <Route exact path="/signup" element={<NewUser/>}/>
           <Route exact path="/consulthousing" element={<ConsultHousingContainer/>}/>
           <Route exact path="/consultvisit" element={<ConsultVisitContainer/>}/>
         </Routes>

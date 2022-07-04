@@ -7,7 +7,7 @@ const db = mysql.createConnection({
     host: "localhost",
     user: "root",
     password: "password",
-    database: "agence"
+    database: "boutique"
 });
 
 db.connect(function (err) {
@@ -44,12 +44,15 @@ router.post('/postLogement', (req, res) => {
 
 router.post('/postClient', (req, res) => {
     var val = req.body;
-    var sql = "INSERT INTO client(nom,prenom,Adresse, ville) VALUES (?) "
+    var sql = "INSERT INTO Client(nomClient,prenomClient,adresse,codePostal,tel,pseudo,mdp) VALUES (?) "
     var values = [
-        val.nomclient,
-        val.prenomclient,
-        val.adresseclient,
-        val.villeclient
+        val.nomClient,
+        val.prenomClient,
+        val.adresse,
+        val.codePostal,
+        val.tel,
+        val.pseudo,
+        val.mdp
     ];
     db.query(sql, [values], (err, result) => {
         if (err) throw err;

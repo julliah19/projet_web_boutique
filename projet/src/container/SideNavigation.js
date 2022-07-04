@@ -5,8 +5,8 @@ import { Fade, UserFollow, Hotel } from '@carbon/icons-react';
 
 var route = [
     {
-        href: "newuser",
-        title: "Ajouter un Logement",
+        href: "signup",
+        title: "Sign Up",
         renderIcon: UserFollow
     },
     {
