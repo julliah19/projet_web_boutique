@@ -12,7 +12,7 @@ CREATE TABLE Client(
    idClient INTEGER auto_increment UNIQUE,
    nomClient VARCHAR(50) NOT NULL,
    prenomClient VARCHAR(50) NOT NULL,
-   adressse VARCHAR(50) NOT NULL,
+   adresse VARCHAR(50) NOT NULL,
    codePostal VARCHAR(50) NOT NULL,
    tel VARCHAR(50) NOT NULL,
    pseudo VARCHAR(255),
@@ -22,7 +22,7 @@ CREATE TABLE Client(
 
 CREATE TABLE Commande(
    idCommande INTEGER auto_increment UNIQUE,
-   date_commande DATE NOT NULL,
+   date DATE NOT NULL,
    idclient INTEGER NOT NULL,
    PRIMARY KEY(idCommande),
    FOREIGN KEY(idClient) REFERENCES Client(idClient)
@@ -54,7 +54,7 @@ CREATE TABLE Paypal(
 );
 
 CREATE TABLE CategorieProduit(
-   idCatProd INTEGER AUTO_INCREMENT,
+   idCatProd INTEGER AUTO_INCREMENT UNIQUE,
    libelleCatProd VARCHAR(50),
    imgCatProd VARCHAR(50),
    idProduit INTEGER NOT NULL,
@@ -71,7 +71,7 @@ CREATE TABLE CommandeProd(
    FOREIGN KEY(idProduit) REFERENCES Produit(idProduit)
 );
 
-CREATE TABLE paiement(
+CREATE TABLE Paiement(
    idCommande INTEGER auto_increment UNIQUE,
    idPaiement VARCHAR(50),
    idCB INTEGER NOT NULL,
@@ -82,4 +82,5 @@ CREATE TABLE paiement(
    FOREIGN KEY(idPaypal) REFERENCES Paypal(idPaypal)
 );
 
-
+INSERT INTO Client(nomClient,prenomClient,adresse,codePostal,tel,pseudo,mdp) VALUES("JIANG", "Senhao", "Adresse Vide", "CodePostal", "Téléphone", "Pseudonyme", "MOTDEPASSE");
+INSERT INTO Produit(nomProduit,prix,dispo,img,description,stock) VALUES("Tshirt Blanc", "20", true, "","Un tshirt blanc classique !", 56);
