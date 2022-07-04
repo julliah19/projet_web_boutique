@@ -106,4 +106,11 @@ router.get('/getvisite', (req, res) => {
     })
 })
 
+router.get('/getproduit', (req, res) => {
+    db.query(`SELECT * FROM PRODUIT`, (err, result) => {
+        if (err) throw err;
+        res.send(result);
+    })
+})
+
 module.exports = router;

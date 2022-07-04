@@ -10,8 +10,8 @@ var route = [
         renderIcon: UserFollow
     },
     {
-        href: "consulthousing",
-        title: "Consulter Logement",
+        href: "consultproduct",
+        title: "Consulter Produits",
         renderIcon: Hotel
     },
     {
