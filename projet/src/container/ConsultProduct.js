@@ -16,7 +16,7 @@ const renderConsultProduct = (loading, productResponse, selectedProduct, setSele
         {productResponse.map((p) => {
 
             return(<ClickableTile onClick={() => setSelectedProduct(p.idProduit)} style={{textAlign:"left", lineHeight:"24px"}}>
-                {p.img != null ? <img src={require("../../assets/img/produits/" + p.img)} style={{maxWidth:"40vw", minHeight:"40vh", maxHeight:"40vh", display:"flex", justifyContent:"center", margin:"auto"}}/> : <img/> } <br></br>
+                {p.img != "" ? <img src={require("../../assets/img/produits/" + p.img)} style={{maxWidth:"40vw", minHeight:"40vh", maxHeight:"40vh", display:"flex", justifyContent:"center", margin:"auto"}}/> : <img src="../../assets/img/produits/no-image-found.jpg"/> } <br></br>
                 {"Nom du produit : " + p.nomProduit} <br></br>
                 {"Description : " + p.description}  <br></br>
                 {"Prix : " + p.prix + " €"}  <br></br>
