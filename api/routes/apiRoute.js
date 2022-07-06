@@ -15,10 +15,6 @@ db.connect(function (err) {
     console.log("MySql connected on localhost port 3306");
 });
 
-router.get('/test', (req, res) => {
-
-    res.send("Test with back");
-});
 
 router.post('/postLogement', (req, res) => {
     var val = req.body;
@@ -60,6 +56,19 @@ router.post('/postClient', (req, res) => {
         res.send(result);
     });
 });
+
+router.post('/login', (req, res) => {
+    var val = req.body;
+    db.query("SELECT * FROM client WHERE pseudo = ? AND mdp = ?", [val.data[0], val.data[1]], (err, result) => {
+        if (result.length > 0) {
+            res.send("Bienvenue " + val.data[0]);
+        }
+        else {
+            res.send("Pseudonyme ou mot de passe incorrect");
+        }
+
+    });
+})
 
 router.get('/lastClient', (req, res) => {
     db.query("SELECT * FROM client ORDER BY idClient DESC LIMIT 1;", (err, result) => {

@@ -1,6 +1,7 @@
-import React from "react";
-import { SideNav, SideNavItems, SideNavMenu, SideNavMenuItem, SideNavLink, HeaderContainer, Header, HeaderMenuButton, HeaderName } from '@carbon/react';
-import { Fade, UserFollow, Hotel } from '@carbon/icons-react';
+import React, { useContext, useState } from "react";
+import { SideNav, SideNavItems, SideNavMenu, SideNavMenuItem, SideNavLink, HeaderContainer, Header, HeaderMenuButton, HeaderName, HeaderGlobalAction, HeaderGlobalBar, Modal } from '@carbon/react';
+import { Fade, UserFollow, Hotel, Purchase, ShoppingCart, Login, Logout } from '@carbon/icons-react';
+import UserContext from "../context/UserContext";
 
 
 var route = [
@@ -12,12 +13,12 @@ var route = [
     {
         href: "consultproduct",
         title: "Consulter Produits",
-        renderIcon: Hotel
+        renderIcon: Purchase
     },
     {
         href: "consultvisit",
-        title: "Consulter les Visites",
-        renderIcon: Hotel
+        title: "Panier",
+        renderIcon: ShoppingCart
     }
 ]
 
@@ -25,7 +26,35 @@ const str = window.location.href;
 var path = str.split("/");
 var lastpath = path[(path.length - 1)];
 
+const HeaderTools = (isAuthenticated, name) => {
+    console.log(isAuthenticated);
+    if (isAuthenticated) {
+        return (<div style={{display:"flex"}}>
+            <div style={{display:"flex", margin:"auto", paddingRight:"16px"}}>{name}</div>
+            <HeaderGlobalAction aria-label="Déconnexion" href="/" onClick={() => { SignOut() }}>
+                <Logout size={20} />
+            </HeaderGlobalAction>
+        </div>);
+    }
+    else {
+        return (<HeaderGlobalAction aria-label="Connexion" href="/signin">
+            <Login size={20} />
+        </HeaderGlobalAction>);
+    }
+}
+
+
+const SignOut = () => {
+    alert("Vous avez été déconnecté ! ");
+    localStorage.setItem('userData', JSON.stringify({ isAuthenticated: false, name: "" }));
+}
+
+
+
 export const SideNavigation = () => {
+
+    const { isAuthenticated, name } = useContext(UserContext);
+    const [open, setOpen] = useState(false);
 
     return (
         <HeaderContainer
@@ -39,10 +68,13 @@ export const SideNavigation = () => {
                             isActive={isSideNavExpanded}
                         />
                         <HeaderName href="/" prefix="">
-                            <bold>Projet BDD</bold>
+                            <bold>Brocante</bold>
                         </HeaderName>
+                        <HeaderGlobalBar>
+                            {HeaderTools(isAuthenticated, name, open, setOpen)}
+                        </HeaderGlobalBar>
                         <SideNav
-                            aria-label="Side navigation"
+                            aria-label="Brocante"
                             isRail
                             expanded={isSideNavExpanded}
                             onOverlayClick={onClickSideNavExpand}>
