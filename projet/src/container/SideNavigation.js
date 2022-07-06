@@ -39,7 +39,11 @@ export const SideNavigation = () => {
                             isActive={isSideNavExpanded}
                         />
                         <HeaderName href="/" prefix="">
+<<<<<<< Updated upstream
                             <bold>Projet BDD</bold>
+=======
+                        <img src={window.location.origin+ "/images/logo.png"} alt="placeholder" width="90%"/>
+>>>>>>> Stashed changes
                         </HeaderName>
                         <SideNav
                             aria-label="Side navigation"
