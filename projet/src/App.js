@@ -5,6 +5,7 @@ import { Welcome } from './container/Welcome';
 import { ConsultHousingContainer } from './container/ConsultHousingContainer';
 import { ConsultVisitContainer } from './container/ConsultVisitContainer';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Footer from './component/Footer';
 
 
 function App() {
@@ -19,6 +20,9 @@ function App() {
           <Route exact path="/consultvisit" element={<ConsultVisitContainer/>}/>
         </Routes>
       </BrowserRouter>
+
+    
+      
     </div>
   );
 }
