@@ -68,7 +68,9 @@ export const SideNavigation = () => {
                             isActive={isSideNavExpanded}
                         />
                         <HeaderName href="/" prefix="">
-                            <bold>Brocante</bold>
+                        
+                            <img src={window.location.origin+ "/images/logo.png"} alt="placeholder" width="90%"/>
+                            
                         </HeaderName>
                         <HeaderGlobalBar>
                             {HeaderTools(isAuthenticated, name, open, setOpen)}

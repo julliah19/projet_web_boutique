@@ -8,6 +8,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { SignIn } from './component/SignIn';
 import { useEffect, useState } from 'react';
 import UserContext from './context/UserContext';
+import Footer from './component/Footer';
 
 
 function App() {
