@@ -25,7 +25,7 @@ const login = async (username, password, setAuthenticated, setName) => {
         else {
             setAuthenticated(true);
             setName(username);
-                localStorage.setItem('userData', JSON.stringify({isAuthenticated:true, name:username}));
+            localStorage.setItem('userData', JSON.stringify({isAuthenticated:true, name:username, cart:[]}));
             alert(response.data);
         }
         //notification success or error
@@ -36,7 +36,7 @@ const login = async (username, password, setAuthenticated, setName) => {
 export const SignIn = () => {
     const [username, setUsername] = useState();
     const [password, setPassword] = useState();
-    const { isAuthenticated, name , setIsAuthenticated, setName } = useContext(UserContext);
+    const { setIsAuthenticated, setName } = useContext(UserContext);
 
     const handleSubmit = async (e) => {
         e.preventDefault();

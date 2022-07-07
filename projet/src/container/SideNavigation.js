@@ -7,7 +7,7 @@ import UserContext from "../context/UserContext";
 var route = [
     {
         href: "signup",
-        title: "Sign Up",
+        title: "S'inscrire",
         renderIcon: UserFollow
     },
     {
@@ -16,7 +16,7 @@ var route = [
         renderIcon: Purchase
     },
     {
-        href: "consultvisit",
+        href: "cart",
         title: "Panier",
         renderIcon: ShoppingCart
     }
@@ -46,7 +46,7 @@ const HeaderTools = (isAuthenticated, name) => {
 
 const SignOut = () => {
     alert("Vous avez été déconnecté ! ");
-    localStorage.setItem('userData', JSON.stringify({ isAuthenticated: false, name: "" }));
+    localStorage.setItem('userData', JSON.stringify({ isAuthenticated: false, name: ""}));
 }
 
 
