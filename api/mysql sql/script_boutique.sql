@@ -83,4 +83,12 @@ CREATE TABLE Paiement(
 );
 
 INSERT INTO Client(nomClient,prenomClient,adresse,codePostal,tel,pseudo,mdp) VALUES("JIANG", "Senhao", "Adresse Vide", "CodePostal", "Téléphone", "Pseudonyme", "MOTDEPASSE");
-INSERT INTO Produit(nomProduit,prix,dispo,img,description,stock) VALUES("Tshirt Blanc", "20", true, "","Un tshirt blanc classique !", 56);
+INSERT INTO Client(nomClient,prenomClient,adresse,codePostal,tel,pseudo,mdp) VALUES("POOREEA", "Fardeen", "Adresse Vide", "CodePostal", "Téléphone", "xboxfafoune93", "6127");
+INSERT INTO Client(nomClient,prenomClient,adresse,codePostal,tel,pseudo,mdp) VALUES("JIANG", "Janik", "Adresse Vide", "CodePostal", "Téléphone", "Chazeria", "3095");
+INSERT INTO Client(nomClient,prenomClient,adresse,codePostal,tel,pseudo,mdp) VALUES("SOTHIRAJ", "Julliah", "Adresse Vide", "CodePostal", "Téléphone", "julliah", "3808");
+
+INSERT INTO Produit(nomProduit,prix,dispo,img,description,stock) VALUES("Tshirt Blanc", "20", true, "tshirt-blanc.jpg","Un tshirt blanc classique !", 56);
+INSERT INTO Produit(nomProduit,prix,dispo,img,description,stock) VALUES("Tshirt Noir", "19.99", true, "tshirt-noir.jpg","Un tshirt noir classique !", 24);
+INSERT INTO Produit(nomProduit,prix,dispo,img,description,stock) VALUES("Bottes Noires", "189.99", true, "bottes-noires.jpg","Des bottes noires classe !", 10);
+
+

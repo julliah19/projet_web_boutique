@@ -20,6 +20,7 @@ const login = async (username, password, setAuthenticated, setName) => {
     }).then((response) => {
         console.log(response);
         if (response.data == "Pseudonyme ou mot de passe incorrect"){
+            alert(response.data);
             return;
         }
         else {
